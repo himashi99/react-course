@@ -15,14 +15,35 @@
   <title>Let's React</title>
 </head>
 <body>
-<!-- DESIGNATED LOATION TO INSERT REACT CONTENT-->
-  <div id="app">React has no rendered yet</div>
+<!-- DESIGNATED LOCATION TO INSERT REACT CONTENT-->
+  <div id="app">React has not rendered yet</div>
+  <p id="para"></p>
+  <p id="visit-google"></p>
+  <div id="my-list"></div>
+
 <!-- JAVASCRIPT -->
 <script type="text/babel">
 
 // RENDER REACT TO DOM - WILL ACCEPT 2 ARGUMENTS (REACT WHAT, REACT WHERE)
 ReactDOM.render(
   <h1>Hello World</h1>, document.getElementById("app")
+);
+
+ReactDOM.render(
+  <p>I am a paragraph</p>, document.getElementById("para")
+);
+
+ReactDOM.render(
+  <a href="https://www.google.ca/"> Visit Google</a>, document.getElementById("visit-google")
+);
+
+ReactDOM.render(
+  <ul>
+  <li>Go to the doctors</li>
+  <li>Get haircut</li>
+  <li>Buy gifts</li>
+  </ul>,
+  document.getElementById("my-list")
 );
 
 </script>
