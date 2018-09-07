@@ -16,13 +16,17 @@
 </head>
 <body>
 <!-- DESIGNATED LOATION TO INSERT REACT CONTENT-->
-  <div id="app">React has not rendered yet</div>
+<div id="app">React has no rendered yet</div>
 <!-- JAVASCRIPT -->
 <script type="text/babel">
 
+// CREATE VARIABLES FOR JSX AND FOR LOCATION
+let hello = <h1>Hello World</h1>;
+let destination = document.getElementById("app");
+
 // RENDER REACT TO DOM - WILL ACCEPT 2 ARGUMENTS (REACT WHAT, REACT WHERE)
 ReactDOM.render(
-  <h1>Hello World</h1>, document.getElementById("app")
+  hello, destination
 );
 
 </script>

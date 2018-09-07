@@ -21,9 +21,20 @@
 <script type="text/babel">
 
 // RENDER REACT TO DOM - WILL ACCEPT 2 ARGUMENTS (REACT WHAT, REACT WHERE)
-ReactDOM.render(
-  <h1>Hello World</h1>, document.getElementById("app")
-);
+ReactDOM.render(React.createElement(
+  "div",
+  null,
+  React.createElement(
+    "h1",
+    null,
+    "Hello World"
+  ),
+  React.createElement(
+    "h2",
+    null,
+    "How are you doing"
+  )
+), document.getElementById("app"));
 
 </script>
 </body>
