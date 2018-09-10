@@ -1,0 +1,22 @@
+.circle {
+  width: 100px;
+  height: 100px;
+  background-color: red;
+  -moz-border-radius: 50%;
+  -webkit-border-radius: 50%;
+  border-radius: 50%;
+}
+
+ .square {
+  width: 100px;
+  height: 100px;
+  background-color: red;
+}
+
+
+
+.rectangle {
+  width: 200px;
+  height: 100px;
+  background-color: red;
+}
