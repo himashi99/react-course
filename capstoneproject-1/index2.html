@@ -22,7 +22,7 @@
 <script type="text/babel">
 
   // FRIENDLY COMPLEX COMPONENT
-  function Friendly() {
+  function Friendly(props) {
       let friendlyStyle={
         width: 230,
         height: 300,
@@ -30,19 +30,21 @@
         backgroundColor: "#fff",
         WebkitFilter: "drop-shadow(0px 0px 5px #555)",
         filter: "drop-shadow(0px 0px 5px #555)",
-        textAlign: "center"
+        textAlign: "center",
+        display: "inline-block",
+        margin: 20
       }
       return (
         <div style={friendlyStyle}>
-          <Avatar />
-          <Username />
+          <Avatar pic={props.img}/>
+          <Username name1={props.name}/>
           <GetConnected />
         </div>
       );
   }
 
   // AVATAR COMPONENT
-  function Avatar() {
+  function Avatar(props) {
     let avatarStyle={
       marginTop: 20,
       width: 150,
@@ -50,19 +52,19 @@
       borderRadius: "50%"
     }
     return (
-      <img src="profilepic.jpg" alt="profile image" style={avatarStyle}></img>
+      <img src={props.pic} alt="profile image" style={avatarStyle}></img>
     );
   }
 
   // USERNAME COMPONENT
-  function Username() {
+  function Username(props) {
     let nameStyle={
       fontSize: 16,
       fontFamily: "Arial, Helvetica, sans-serif",
       margin: 20
     }
     return(
-      <h1 style={nameStyle}>Himashi Hettege Dona</h1>
+      <h1 style={nameStyle}>{props.name1}</h1>
     );
   }
 
@@ -103,7 +105,48 @@
     }
 
   ReactDOM.render (
-    <Friendly />,
+    <div>
+      <Friendly
+        name="Himashi"
+        img="profilepic.jpg"
+      />
+      <Friendly
+        name="Tara"
+        img="profilepic.jpg"
+      />
+      <Friendly
+        name="Laura"
+        img="profilepic.jpg"
+      />
+      <Friendly
+        name="John"
+        img="profilepic.jpg"
+      />
+      <Friendly
+        name="Jim"
+        img="profilepic.jpg"
+      />
+      <Friendly
+        name="Larry"
+        img="profilepic.jpg"
+      />
+      <Friendly
+        name="Rhonda"
+        img="profilepic.jpg"
+      />
+      <Friendly
+        name="George"
+        img="profilepic.jpg"
+      />
+      <Friendly
+        name="Sue"
+        img="profilepic.jpg"
+      />
+      <Friendly
+        name="Mary"
+        img="profilepic.jpg"
+      />
+    </div>,
     document.getElementById("app")
   );
 </script>
