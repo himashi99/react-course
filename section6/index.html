@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <!-- REACT LIBRARY -->
+  <script src="https://unpkg.com/react@15.5.4/dist/react.js"></script>
+  <!-- REACT DOM LIBRARY -->
+  <script src="https://unpkg.com/react-dom@15.5.4/dist/react-dom.js"></script>
+  <!-- BABEL LIBRARY -->
+  <!-- lets us use ES6 and JSX -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.25.0/babel.min.js"></script>
+  <title>Styling Components</title>
+</head>
+<body>
+  <!-- DESIGNATED LOATION TO INSERT REACT CONTENT-->
+  <!-- if we see "React has not rendered" something has gone wrong -->
+    <div id="app">React has not rendered yet</div>
+
+  <!-- JAVASCRIPT -->
+  <script type="text/babel">
+
+  // CREATE FAMILY LIST COMPONENT - 1ST METHOD
+  function FamilyList(props) {
+    // ASSIGN PROPS.SIBLINGS TO VARIABLE
+    let siblings = props.siblings;
+      // USE MAP METHOD ON SIBLINGS ARRAY TO CREATE NEW ARRAY FULL OF JSX CODE
+      let siblingsListItem = siblings.map(function(person) {
+        return <div key={person.id}>{person.name}</div>
+      });
+    return(
+      <div>{siblingsListItem}</div>
+    );
+  }
+
+  // ALTERNATIVE FAMILY LIST COMPONENT - ALTERNATIVE METHOD
+  // function FamilyList(props) {
+  //   return(
+  //     <div>{props.siblings.map(function(person) {
+  //       return <div key={person.id}>{person.name}</div>
+  //     })}</div>
+  //   );
+  // }
+
+  // ARRAY OF OBJECTS
+  var siblings =  [
+                    {id: 1, name: 'Chris', female: false},
+                    {id: 2, name: 'Jeff', female: false},
+                    {id: 3, name: 'Julie', female: true},
+                    {id: 4, name: 'Jess', female: true}
+                  ];
+
+  ReactDOM.render(
+    <FamilyList
+      siblings={siblings}  // assign siblings property to siblings array
+    />,
+    document.getElementById("app"))
+
+  </script>
+
+</body>
+</html>
