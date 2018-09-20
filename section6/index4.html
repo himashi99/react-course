@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <!-- REACT LIBRARY -->
+  <script src="https://unpkg.com/react@15.5.4/dist/react.js"></script>
+  <!-- REACT DOM LIBRARY -->
+  <script src="https://unpkg.com/react-dom@15.5.4/dist/react-dom.js"></script>
+  <!-- BABEL LIBRARY -->
+  <!-- lets us use ES6 and JSX -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.25.0/babel.min.js"></script>
+  <title>Styling Components</title>
+</head>
+<body>
+  <!-- DESIGNATED LOATION TO INSERT REACT CONTENT-->
+  <!-- if we see "React has not rendered" something has gone wrong -->
+    <div id="app">React has not rendered yet</div>
+
+  <!-- JAVASCRIPT -->
+  <script type="text/babel">
+
+  let Color = function(props) {
+    let colorItems = props.colors.map(function(eachColor) {
+      let colorStyle = {
+        marginBottom: 20,
+        width: 150,
+        height: 50,
+        backgroundColor: eachColor.color
+      };
+      return(
+        <div style={colorStyle} key={eachColor.id}>{eachColor.name}</div>
+      )
+    })
+    return(
+      <h1>{colorItems}</h1>
+    );
+  }
+  // function ColorSpectrum(props) {
+  //   let colors = props.colors.map(function(singleColor) {
+  //     return(
+  //       <div>{singleColor.name}</div>
+  //     )
+  //   })
+  //   return(
+  //     <div>colors</div>
+  //   );
+  // }
+  //
+  // let Color = function(props) {
+  //   let colorName = props.colors.map(function(singleColor) {
+  //     return(
+  //       <div>{singleColor.name}</div>
+  //     )
+  //   })
+  //   let colorStyle = {
+  //     width: 150,
+  //     height: 50,
+  //     backgroundColor: props.backgroundColor
+  //   }
+  //   return(
+  //     <h1 style={colorStyle}>{props.colorName}</h1>
+  //   );
+  // }
+  let colors = [
+                { id: 1, color: "red", name: "red" },
+                { id: 2, color: "orange", name: "orange" },
+                { id: 3, color: "yellow", name: "yellow" },
+                { id: 4, color: "green", name: "green" },
+                { id: 5, color: "blue", name: "blue" },
+                { id: 6, color: "indigo", name: "indigo" },
+                { id: 7, color: "violet", name: "violet" }
+              ]
+
+  ReactDOM.render(
+    <Color colors={colors} />,
+    document.getElementById("app")
+  );
+
+  </script>
+
+</body>
+</html>

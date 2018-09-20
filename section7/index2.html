@@ -21,41 +21,32 @@
   <!-- JAVASCRIPT -->
   <script type="text/babel">
 
-  function FamilyList(props) {
-    let femaleSiblings = props.siblings.filter(function(person) {
-      return person.female;
-    }).map(function(person) {
-      return <div key={person.id}>{person.name}</div>
-    });
+  class Warning extends React.Component {
+    handleButtonStove() {
+      alert("Ouch! That is hot!")
+    }
 
-    let maleSiblings=props.siblings.filter(function(person) {
-      return !person.female;
-    }).map(function(person) {
-      return <div key={person.id}>{person.name}</div>
-    });
+    handleButtonSlurpee() {
+      alert("Brain Freeze!")
+    }
 
+    // inside the curly braces is the function you want to run each time Mouse Over Event happens
+    // "this" keyword gives us access to the methods in the Warning class component
+    render() {
       return(
         <div>
-          <h1>Female Siblings</h1>
-          <div>{femaleSiblings}</div>
-          <hr />
-          <h1>Male Siblings</h1>
-          <div>{maleSiblings}</div>
+          <h1>Life Warnings</h1>
+          <button onMouseEnter={this.handleButtonStove}>Touch the Stove</button>
+          <button onMouseEnter={this.handleButtonSlurpee}>Drink slurpee really fast</button>
         </div>
       );
+    }
   }
 
-  var siblings =  [
-                    {id: 1, name: 'Chris', female: false},
-                    {id: 2, name: 'Jeff', female: false},
-                    {id: 3, name: 'Julie', female: true},
-                    {id: 4, name: 'Jess', female: true}
-                  ];
-
   ReactDOM.render(
-    <FamilyList siblings={siblings} />,
-    document.getElementById("app")
-  );
+  <Warning />,
+  document.getElementById('app')
+  )
 
   </script>
 

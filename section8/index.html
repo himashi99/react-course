@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <!-- REACT LIBRARY -->
+  <script src="https://unpkg.com/react@15.5.4/dist/react.js"></script>
+  <!-- REACT DOM LIBRARY -->
+  <script src="https://unpkg.com/react-dom@15.5.4/dist/react-dom.js"></script>
+  <!-- BABEL LIBRARY -->
+  <!-- lets us use ES6 and JSX -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.25.0/babel.min.js"></script>
+  <title>Styling Components</title>
+</head>
+<body>
+  <!-- DESIGNATED LOATION TO INSERT REACT CONTENT-->
+  <!-- if we see "React has not rendered" something has gone wrong -->
+    <div id="app">React has not rendered yet</div>
+
+  <!-- JAVASCRIPT -->
+  <script type="text/babel">
+
+  // class GuessAge extends React.Component {
+  //   constructor(props) {
+  //     super(props);
+  //     this.state = {
+  //       age: "Guess my Age"
+  //     }
+  //     this.onButtonClick = this.onButtonClick.bind(this);
+  //   }
+  //   onButtonClick() {
+  //     this.setState({
+  //       age: "37"
+  //     });
+  //   }
+  //   render() {
+  //     return(
+  //       <div>
+  //         <h1>Guessing Game</h1>
+  //         <h2>{this.state.age}</h2>
+  //         <button onClick={this.onButtonClick}>Reveal my Age</button>
+  //       </div>
+  //     );
+  //   }
+  // }
+  //
+  // ReactDOM.render(<GuessAge />,
+  // document.getElementById("app")
+  // )
+
+ // Another Method
+
+ // class GuessAge extends React.Component {
+ //   constructor(props) {
+ //     super(props);
+ //     this.state = {
+ //       age: "Guess my Age"
+ //     }
+ //   }
+ //   onButtonClick() {
+ //     this.setState({
+ //       age: "37"
+ //     });
+ //   }
+ //   render() {
+ //     return(
+ //       <div>
+ //         <h1>Guessing Game</h1>
+ //         <h2>{this.state.age}</h2>
+ //         <button onClick={this.onButtonClick.bind(this)}>Reveal my Age</button>
+ //       </div>
+ //     );
+ //   }
+ // }
+ //
+ // ReactDOM.render(<GuessAge />,
+ // document.getElementById("app")
+ // )
+
+// Another Method
+// Fat arrow in ES6 preserve the "this" context when they are called
+class GuessAge extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      age: "Guess my Age"
+    }
+  }
+  onButtonClick() {
+    this.setState({
+      age: "37"
+    });
+  }
+  render() {
+    return(
+      <div>
+        <h1>Guessing Game</h1>
+        <h2>{this.state.age}</h2>
+        <button onClick={() => this.onButtonClick()}>Reveal my Age</button>
+      </div>
+    );
+  }
+}
+
+ReactDOM.render(<GuessAge />,
+document.getElementById("app")
+)
+  </script>
+
+</body>
+</html>

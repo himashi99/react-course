@@ -21,42 +21,32 @@
   <!-- JAVASCRIPT -->
   <script type="text/babel">
 
-  function FamilyList(props) {
-    let femaleSiblings = props.siblings.filter(function(person) {
-      return person.female;
-    }).map(function(person) {
-      return <div key={person.id}>{person.name}</div>
-    });
+  class Note extends React.Component {
+    handleButtonEdit() {
+      alert("This button will edit a note");
+    }
 
-    let maleSiblings=props.siblings.filter(function(person) {
-      return !person.female;
-    }).map(function(person) {
-      return <div key={person.id}>{person.name}</div>
-    });
+    handleButtonDelete() {
+      alert("This button will delete a note");
+    }
 
+    render() {
+    console.log(this); // this keyword has access to Note Class Componenet
       return(
         <div>
-          <h1>Female Siblings</h1>
-          <div>{femaleSiblings}</div>
-          <hr />
-          <h1>Male Siblings</h1>
-          <div>{maleSiblings}</div>
+          <h1>Useless Notetake</h1>
+          <button onClick={this.handleButtonEdit}>Add a Note</button>
+          <button onClick={this.handleButtonDelete}>Delete Note</button>
         </div>
-      );
+
+      )
+    }
   }
 
-  var siblings =  [
-                    {id: 1, name: 'Chris', female: false},
-                    {id: 2, name: 'Jeff', female: false},
-                    {id: 3, name: 'Julie', female: true},
-                    {id: 4, name: 'Jess', female: true}
-                  ];
-
   ReactDOM.render(
-    <FamilyList siblings={siblings} />,
-    document.getElementById("app")
-  );
-
+  <Note />,
+  document.getElementById("app")
+  )
   </script>
 
 </body>
